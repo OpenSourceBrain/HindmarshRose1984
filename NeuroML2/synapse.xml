@@ -1,0 +1,33 @@
+<ComponentType name="baseAnalogSynapse"
+    extends="baseVoltageDepPointCurrent"
+    description="Base type for all analog synapses, i.e. ComponentTypes which the postsynaptic membrane potential is varying over time and change behavior every simulation's dt. cno_0000009"> <!-- http://bioportal.bioontology.org/ontologies/46856/?p=terms&conceptid=cno%3Acno_0000009 -->
+    
+    <AnalogPort name="in" direction="in"/>    
+</ComponentType>
+
+<ComponentType name="baseConductanceBasedAnalogSynapse"
+    extends="baseAnalogSynapse"
+    description="Synapse model which exposes a conductance _g in addition to producing a current. Not necessarily ohmic!! cno_0000027">
+
+    <Parameter name="threshold" dimension="voltage" description=""/>
+    <Parameter name="saturation" dimension="conductance" description=""/>
+    <Parameter name="slope" dimension="none" description=""/>
+    <Parameter name="power" dimension="none" description=""/>
+    <Parameter name="Vpre" dimension="voltage" />
+
+    <Exposure name="g" dimension="conductance" description="Time varying conductance through the synapse."/>
+
+    <Behavior>
+        <StateVariable name="g" dimension="conductance" exposure="g"/>
+        
+        <StateAssignment variable="g" value="0"/>
+        
+        <OnCondition test="0 .lt. (Vpre - threshold)">
+            <StateAssignment variable="g" value="(Vpre - threshold) ^ power * slope"/>
+        
+            <OnCondition test="saturation .geq. g">
+                <StateAssignment variable="g" value="saturation"/>
+            </OnCondition>
+        </OnCondition>
+    </Behavior>
+</ComponentType>

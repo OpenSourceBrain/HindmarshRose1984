@@ -12,30 +12,20 @@
 <Include file="HindmarshRose3d.xml"/>
 
 <!-- parameter set for regular saddle-node/homoclinic (aka square wave) busting -->
-<!--
-<hindmarshRoseCell id="hr1" a="1.0" b="3.0" c="-3.0"
+<hindmarshRoseCell id="hr_regular" a="1.0" b="3.0" c="-3.0"
     d="5.0" s="4.0" I="5.0" x1="-1.3" r="0.002"
     x0="-1.3" y0="-1.0" z0="1.0"/>
--->
-
-<!-- parameter set for chaotic busting -->
-<hindmarshRoseCell id="hr1" a="1.0" b="2.8" c="1.0"
-    d="5.0" s="4.0" I="3.2" x1="-1.6" r="0.01"
-    x0="-1.6" y0="-1.0" z0="1.0"/>
-
 
 <network id="net1">
-    <population id="hr1pop" component="hr1" size="1"/>
+    <population id="hr_regular_pop" component="hr_regular" size="1"/>
 </network>
-
-<!-- End of NeuroML2 content -->
         
 
 <Simulation id="sim1" length="2000s" step="0.05s" target="net1">
 
-    <Display id="d1" title="x (membrane potential) timeseries"
+    <Display id="d1" title="Hindmarsh-Rose example run"
         timeScale="1s" xmin="0" xmax="2100" ymin="-3" ymax="3">
-        <Line id ="hr1" quantity="hr1pop[0]/x" scale="1"
+        <Line id ="x(t)" quantity="hr_regular_pop[0]/x" scale="1"
             color="#000000" timeScale="1s"/>
     </Display>
     

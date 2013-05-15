@@ -1,0 +1,35 @@
+<Lems>
+
+
+<!-- Specify which component to run -->
+<Target component="sim1"/>
+
+<!-- Include core NeuroML2 ComponentType definitions -->
+<Include file="Cells.xml"/>
+<Include file="Networks.xml"/>
+<Include file="Simulation.xml"/>
+
+<Include file="HindmarshRose3d.xml"/>
+
+<!-- parameter set for chaotic busting -->
+<hindmarshRoseCell id="hr_chaotic" a="1.0" b="2.8" c="1.0"
+    d="5.0" s="4.0" I="3.85" x1="-1.6" r="0.01"
+    x0="-1.6" y0="-1.0" z0="1.0"/>
+
+
+<network id="net1">
+    <population id="hr_chaotic_pop" component="hr_chaotic" size="1"/>
+</network>
+
+
+<Simulation id="sim1" length="10000s" step="0.01s" target="net1" method="rk4">
+
+    <Display id="d1" title="x (membrane potential) timeseries"
+        timeScale="1s" xmin="-100" xmax="10100" ymin="-2" ymax="2">
+        <Line id ="x(t)" quantity="hr_chaotic_pop[0]/x" scale="1"
+            color="#000000" timeScale="1s"/>
+    </Display>
+    
+</Simulation>
+
+</Lems>

@@ -1,0 +1,13 @@
+/NeuroML2/jsbml.log
+*~
+*_nrn.py
+*_brian.py
+x86_64
+i386
+umac
+*.sbml
+*.png
+*.ode
+*.gv
+*.mod
+

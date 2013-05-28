@@ -25,7 +25,7 @@
 
     <Display id="d1" title="Hindmarsh-Rose example run"
         timeScale="1s" xmin="0" xmax="2100" ymin="-3" ymax="3">
-        <Line id ="x(t)" quantity="hr_regular_pop[0]/x" scale="1"
+        <Line id ="x" quantity="hr_regular_pop[0]/x" scale="1"
             color="#000000" timeScale="1s"/>
     </Display>
     

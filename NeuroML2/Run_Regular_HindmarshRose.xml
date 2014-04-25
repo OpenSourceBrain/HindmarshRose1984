@@ -21,7 +21,7 @@
 </network>
         
 
-<Simulation id="sim1" length="2000s" step="0.05s" target="net1">
+<Simulation id="sim1" length="2000s" step="0.005s" target="net1">
 
     <Display id="d1" title="Hindmarsh-Rose example run"
         timeScale="1s" xmin="0" xmax="2100" ymin="-3" ymax="3">

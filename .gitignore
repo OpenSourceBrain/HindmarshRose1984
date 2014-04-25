@@ -10,4 +10,8 @@ umac
 *.ode
 *.gv
 *.mod
-
+*.9ml
+*.sedml
+*.sbml
+*.cellml
+*.spineml

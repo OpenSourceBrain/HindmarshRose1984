@@ -31,13 +31,13 @@
     </Display>
 
     <Display id="d2" title="y timeseries"
-        timeScale="1s" xmin="-100" xmax="2100" ymin="-2" ymax="2">
+        timeScale="1s" xmin="-100" xmax="2100" ymin="-6" ymax="1">
         <Line id ="y" quantity="hr_chaotic_pop[0]/y" scale="1"
             color="#0000ff" timeScale="1s"/>
     </Display>
 
     <Display id="d3" title="z timeseries"
-        timeScale="1s" xmin="-100" xmax="2100" ymin="-2" ymax="2">
+        timeScale="1s" xmin="-100" xmax="2100" ymin="3" ymax="4">
         <Line id ="z" quantity="hr_chaotic_pop[0]/z" scale="1"
             color="#00ff00" timeScale="1s"/>
     </Display>

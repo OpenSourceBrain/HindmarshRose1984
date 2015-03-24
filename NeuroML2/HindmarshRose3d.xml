@@ -56,9 +56,9 @@
     <Exposure name="x" dimension="none"/>
     <Exposure name="y" dimension="none"/>
     <Exposure name="z" dimension="none"/>
-    <Exposure name="P" dimension="none"/>
-    <Exposure name="Q" dimension="none"/>
-    <Exposure name="R" dimension="none"/>
+    <Exposure name="phi" dimension="none"/>
+    <Exposure name="chi" dimension="none"/>
+    <Exposure name="rho" dimension="none"/>
     
     <Dynamics>
         
@@ -66,12 +66,12 @@
         <StateVariable name="y" dimension="none" exposure="y"/>
         <StateVariable name="z" dimension="none" exposure="z"/>
 
-        <DerivedVariable name="P" dimension="none" exposure="P" value="y - a * x^3 + b * x^2 + I"/>
-        <DerivedVariable name="Q" dimension="none" exposure="Q" value="c - d * x^2 - y"/>
-        <DerivedVariable name="R" dimension="none" exposure="R" value="s * ( x - x1 ) - z"/>
-        <TimeDerivative variable="x" value="(P - z) / SEC"/>
-        <TimeDerivative variable="y" value="Q / SEC"/>
-        <TimeDerivative variable="z" value="r * R / SEC"/>
+        <DerivedVariable name="phi" dimension="none" exposure="phi" value="y - a * x^3 + b * x^2 + I"/>
+        <DerivedVariable name="chi" dimension="none" exposure="chi" value="c - d * x^2 - y"/>
+        <DerivedVariable name="rho" dimension="none" exposure="rho" value="s * ( x - x1 ) - z"/>
+        <TimeDerivative variable="x" value="(phi - z) / SEC"/>
+        <TimeDerivative variable="y" value="chi / SEC"/>
+        <TimeDerivative variable="z" value="r * rho / SEC"/>
         
         <OnStart>
             <StateAssignment variable="x" value="x0"/>

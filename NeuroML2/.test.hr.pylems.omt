@@ -1,7 +1,7 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
  
 target: LEMS_Regular_HindmarshRose.xml
-engine: jNeuroML
+engine: PyLEMS_NeuroML2
 mep: .test.hr.mep
 experiments: 
   x:
@@ -12,8 +12,7 @@ experiments:
           columns: [0,1]
         spike detection: 
           method: threshold
-          threshold: 0
-        tolerance: 0
+        tolerance: 0.0139
 
   
 

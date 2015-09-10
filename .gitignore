@@ -16,3 +16,6 @@ umac
 *.sbml
 *.cellml
 *.spineml
+*.m
+*.nestml
+*nest.py

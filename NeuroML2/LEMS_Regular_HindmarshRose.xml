@@ -41,6 +41,13 @@
             color="#00ff00" timeScale="1s"/>
     </Display>
     
+    
+    <OutputFile id="of0" fileName="hr.dat">
+      <OutputColumn id="x" quantity="hr_regular_pop[0]/x"/>
+      <OutputColumn id="y" quantity="hr_regular_pop[0]/y"/>
+      <OutputColumn id="z" quantity="hr_regular_pop[0]/z"/>
+    </OutputFile>
+    
 </Simulation>
 
 </Lems>

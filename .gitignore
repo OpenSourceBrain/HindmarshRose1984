@@ -1,3 +1,4 @@
+/NeuroML2/hr.dat
 /NeuroML2/jsbml.log
 *~
 *_nrn.py
@@ -15,3 +16,6 @@ umac
 *.sbml
 *.cellml
 *.spineml
+*.m
+*.nestml
+*nest.py

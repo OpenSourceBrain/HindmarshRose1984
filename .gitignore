@@ -19,3 +19,4 @@ umac
 *.m
 *.nestml
 *nest.py
+/NeuroML2/LEMS_Regular_HindmarshRose_brian2.py

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/OpenSourceBrain/HindmarshRose1984.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/HindmarshRose1984)
+[![Continuous build using OMV](https://github.com/OpenSourceBrain/HindmarshRose1984/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/HindmarshRose1984/actions/workflows/omv-ci.yml)
 
 HindmarshRose1984
 =================

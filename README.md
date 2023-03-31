@@ -59,9 +59,8 @@ or
 ```
 from within the file.
 
-Simulation tests run by [Arnab Mukherjee](https://github.com/doorkn-b)
+Simulated by https://github.com/doorkn-b
 
-arnabmukherjee791@gmail.com for any questions regarding the simulation.
 
 
 This model firstly appeared in:

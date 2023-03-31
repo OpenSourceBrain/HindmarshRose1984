@@ -16,6 +16,54 @@ model to fire bursts.
 The dynamical variables x,y,z correspond to the membrane potential, a
 recovery variable, and a slower adaptation current, respectively.
 
+# Simulation results
+
+## For Regular Bursting
+
+1) Membrane Potential (x)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/xreg.png)
+
+2) Recovery Variable (y)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/yreg.png)
+
+3) Slower Adaptation Current (z)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/zreg.png)
+
+
+## For Chaotic Bursting
+
+1) Membrane Potential (x)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/xch.png)
+
+2) Recovery Variable (y)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/ych.png)
+
+3) Slower Adaptation Current (z)
+
+![alt text](https://github.com/doorkn-b/HindmarshRose1984/blob/master/Sim%20Images/zch.png)
+
+Simulations conducted through [jNeuroML](https://github.com/NeuroML/jNeuroML).
+
+Adding the environment variable JNML_HOME, pointing to the jNeuroML folder, as well as adding this path to the PATH variable will let you use the jnml utility from any folder.
+
+or
+
+```
+./jnml LEMS_Regular_HindmarshRose.xml
+./jnml LEMS_Chaotic_HindmarshRose.xml
+```
+from within the file.
+
+Simulation tests run by [Arnab Mukherjee](https://github.com/doorkn-b)
+
+arnabmukherjee791@gmail.com for any questions regarding the simulation.
+
+
 This model firstly appeared in:
 Hindmarsh J. L., and Rose R. M. (1984) A model of neuronal bursting
 using three coupled first order differential equations.  Proc. R. Soc.

@@ -1,9 +1,7 @@
 [![Continuous build using OMV](https://github.com/OpenSourceBrain/HindmarshRose1984/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/HindmarshRose1984/actions/workflows/omv-ci.yml)
 
-HindmarshRose1984
-=================
-
-HindmarshRose 1984 cell model
+Hindmarsh Rose 1984 cell model
+==============================
 
 The Hindmarsh Rose model is a simplified point cell model which
 captures complex firing patterns of single neurons, such as periodic

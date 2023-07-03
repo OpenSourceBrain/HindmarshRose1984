@@ -18,3 +18,5 @@ This model firstly appeared in:
 Hindmarsh J. L., and Rose R. M. (1984) A model of neuronal bursting
 using three coupled first order differential equations.  Proc. R. Soc.
 London, Ser. B 221:87–102.
+
+

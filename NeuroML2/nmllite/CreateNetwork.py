@@ -13,7 +13,7 @@ def generate(ref):
     net.notes = "Example: HindmarshRose"
     net.parameters = {"N": 1}
 
-    cell = Cell(id="hr_regular", lems_source_file="HindmarshRoseInstances.xml")
+    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose3d.xml")
     cell.parameters = {}
 
     params = {
@@ -25,8 +25,8 @@ def generate(ref):
         "I": 5.0,
         "x1": -1.3,
         "r": 0.002,
-        "x0": -1.3,
-        "y0": -1.0,
+        "x0": -1.1,
+        "y0": -9,
         "z0": 1.0,
     }
 
@@ -54,8 +54,8 @@ def generate(ref):
     sim = Simulation(
         id="Sim%s"%net.id,
         network=new_file,
-        duration="1000000",
-        dt="25",
+        duration="1400000",
+        dt="2.5",
         record_variables={"x": {"all": "*"}, "y": {"all": "*"}, "z": {"all": "*"}},
         plots2D={
             "X-Y": {"x_axis": "hrPop[0]/x", "y_axis": "hrPop[0]/y"},

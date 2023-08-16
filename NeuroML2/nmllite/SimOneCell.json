@@ -1,0 +1,40 @@
+{
+    "SimOneCell": {
+        "version": "NeuroMLlite v0.5.6",
+        "network": "OneCell.json",
+        "duration": 1400000.0,
+        "dt": 2.5,
+        "record_variables": {
+            "x": {
+                "all": "*"
+            },
+            "y": {
+                "all": "*"
+            },
+            "z": {
+                "all": "*"
+            }
+        },
+        "plots2D": {
+            "X-Y": {
+                "x_axis": "hrPop[0]/x",
+                "y_axis": "hrPop[0]/y"
+            },
+            "Y-Z": {
+                "x_axis": "hrPop[0]/y",
+                "y_axis": "hrPop[0]/z"
+            },
+            "X-Z": {
+                "x_axis": "hrPop[0]/x",
+                "y_axis": "hrPop[0]/z"
+            }
+        },
+        "plots3D": {
+            "X-Y-Z": {
+                "x_axis": "hrPop[0]/x",
+                "y_axis": "hrPop[0]/y",
+                "z_axis": "hrPop[0]/z"
+            }
+        }
+    }
+}

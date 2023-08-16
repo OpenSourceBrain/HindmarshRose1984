@@ -20,3 +20,9 @@ umac
 *.nestml
 *nest.py
 /NeuroML2/LEMS_Regular_HindmarshRose_brian2.py
+*_code.gen.c
+*_code.gen.so
+/NeuroML2/*_eden.py
+arm64
+/NeuroML2/report.*.txt
+/NeuroML2/*.dat

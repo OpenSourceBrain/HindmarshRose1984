@@ -45,7 +45,7 @@
 
     <Attachments name="synapses" type="basePointCurrentDL"/>
 
-    <Constant name="SEC" dimension="time" value="1s"/>
+    <Constant name="MSEC" dimension="time" value="1ms"/>
 
     <Exposure name="x" dimension="none"/>
     <Exposure name="y" dimension="none"/>
@@ -73,9 +73,9 @@
         <DerivedVariable name="rho" dimension="none" exposure="rho" value="s * ( x - x1 ) - z"/>
         <DerivedVariable name="V" dimension="none" exposure="V" value="x"/>
 
-        <TimeDerivative variable="x" value="(phi - z) / SEC"/>
-        <TimeDerivative variable="y" value="chi / SEC"/>
-        <TimeDerivative variable="z" value="r * rho / SEC"/>
+        <TimeDerivative variable="x" value="(phi - z) / MSEC"/>
+        <TimeDerivative variable="y" value="chi / MSEC"/>
+        <TimeDerivative variable="z" value="r * rho / MSEC"/>
         
         <OnStart>
             <StateAssignment variable="x" value="x0"/>

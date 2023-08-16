@@ -10,6 +10,7 @@ experiments:
         file: 
           path: hr_dl.dat
           columns: [0,1]
+          scaling: [1000, 1]
         spike detection: 
           method: threshold
           threshold: 0

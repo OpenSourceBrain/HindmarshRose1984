@@ -26,3 +26,7 @@ umac
 arm64
 /NeuroML2/report.*.txt
 /NeuroML2/*.dat
+/NeuroML2/nmllite/*.dat
+/NeuroML2/nmllite/report.*.txt
+/NeuroML2/nmllite/OneCell.mdf
+/NeuroML2/nmllite/OneCell.mdf.1

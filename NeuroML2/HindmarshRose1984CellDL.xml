@@ -34,7 +34,7 @@
     <Parameter name="b" dimension="none" description="quadratic term in x nullcline"/>
     <Parameter name="c" dimension="none" description="constant term in y nullcline"/>
     <Parameter name="d" dimension="none" description="quadratic term in y nullcline"/>
-    <Parameter name="r" dimension="none" description="timescale separation between slow and fast subsystem (0 &lt; r &lt;&lt; 1)"/>
+    <Parameter name="r" dimension="none" description="timescale separation between slow and fast subsystem (r greater than 0; r much less than 1)"/>
     <Parameter name="s" dimension="none" description="related to adaptation"/>
     <Parameter name="x1" dimension="none" description="related to the system's resting potential"/>
 

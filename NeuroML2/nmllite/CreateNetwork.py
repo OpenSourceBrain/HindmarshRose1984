@@ -22,7 +22,6 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
         "c": -3.0,
         "d": 5.0,
         "s": 4.0,
-        "I": 0,
         "x1": -1.3,
         "r": 0.002,
         "x0": -1.1,
@@ -30,14 +29,15 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
         "z0": 1.0,
     }
 
-    params['stim_del'] = '0ms'
-    params['stim_dur'] = '2000s'
-    params['stim_amp'] = '5'
-    params['input_percent'] = input_percent
 
     for p in params:
         cell.parameters[p] = p
         net.parameters[p] = params[p]
+
+    net.parameters['stim_del'] = '0ms'
+    net.parameters['stim_dur'] = '2000s'
+    net.parameters['stim_amp'] = '5'
+    net.parameters['input_percent'] = input_percent
 
     net.cells.append(cell)
 

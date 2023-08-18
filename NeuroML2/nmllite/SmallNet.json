@@ -9,7 +9,6 @@
             "c": -3.0,
             "d": 5.0,
             "s": 4.0,
-            "I": 0,
             "x1": -1.3,
             "r": 0.002,
             "x0": -1.1,
@@ -28,16 +27,11 @@
                     "c": "c",
                     "d": "d",
                     "s": "s",
-                    "I": "I",
                     "x1": "x1",
                     "r": "r",
                     "x0": "x0",
                     "y0": "y0",
-                    "z0": "z0",
-                    "stim_del": "stim_del",
-                    "stim_dur": "stim_dur",
-                    "stim_amp": "stim_amp",
-                    "input_percent": "input_percent"
+                    "z0": "z0"
                 },
                 "lems_source_file": "../HindmarshRose1984CellDL.xml"
             }

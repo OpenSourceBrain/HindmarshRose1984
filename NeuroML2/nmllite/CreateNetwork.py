@@ -13,7 +13,7 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
     net.notes = "Example: HindmarshRose"
     net.parameters = {"N": size}
 
-    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose1984CellDL.xml")
+    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose1984Cell.xml")
     cell.parameters = {}
 
     params = {
@@ -36,7 +36,7 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
 
     net.parameters['stim_del'] = '0ms'
     net.parameters['stim_dur'] = '2000s'
-    net.parameters['stim_amp'] = '5'
+    net.parameters['stim_amp'] = '5nA'
     net.parameters['input_percent'] = input_percent
 
     net.cells.append(cell)
@@ -49,7 +49,7 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
 
 
     input_source = InputSource(id='iclamp_0', 
-                                neuroml2_input='PulseGeneratorDL', 
+                                neuroml2_input='PulseGenerator', 
                                 parameters={'amplitude':'stim_amp', 'delay':'stim_del', 'duration':'stim_dur'})
 
     net.input_sources.append(input_source)
@@ -72,7 +72,7 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
         network=new_file,
         duration="1400",
         dt="0.0025",
-        record_variables={"x": {"all": "*"}, "y": {"all": "*"}, "z": {"all": "*"}},
+        record_variables={"v": {"all": "*"}, "x": {"all": "*"}, "y": {"all": "*"}, "z": {"all": "*"}},
         plots2D={
             "X-Y": {"x_axis": "hrPop[0]/x", "y_axis": "hrPop[0]/y"},
             "Y-Z": {"x_axis": "hrPop[0]/y", "y_axis": "hrPop[0]/z"},

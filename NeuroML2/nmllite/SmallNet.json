@@ -16,7 +16,7 @@
             "z0": 1.0,
             "stim_del": "0ms",
             "stim_dur": "2000s",
-            "stim_amp": "5",
+            "stim_amp": "5nA",
             "input_percent": 100
         },
         "cells": {
@@ -33,7 +33,7 @@
                     "y0": "y0",
                     "z0": "z0"
                 },
-                "lems_source_file": "../HindmarshRose1984CellDL.xml"
+                "lems_source_file": "../HindmarshRose1984Cell.xml"
             }
         },
         "input_sources": {
@@ -43,7 +43,7 @@
                     "delay": "stim_del",
                     "duration": "stim_dur"
                 },
-                "neuroml2_input": "PulseGeneratorDL"
+                "neuroml2_input": "PulseGenerator"
             }
         },
         "populations": {

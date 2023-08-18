@@ -1,0 +1,22 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: test_onecell_jnml.py
+engine: PyNN_NEURON
+mep: ../.test.hr.mep
+experiments: 
+  x:
+    observables:
+      spike times:
+        file: 
+          path: hrPop_0.x.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 4.922820027490765e-07
+
+  
+
+
+    

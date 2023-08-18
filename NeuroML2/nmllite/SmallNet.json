@@ -1,0 +1,67 @@
+{
+    "SmallNet": {
+        "version": "NeuroMLlite v0.5.6",
+        "notes": "Example: HindmarshRose",
+        "parameters": {
+            "N": "10",
+            "a": 1,
+            "b": 3,
+            "c": -3.0,
+            "d": 5.0,
+            "s": 4.0,
+            "x1": -1.3,
+            "r": 0.002,
+            "x0": -1.1,
+            "y0": -9,
+            "z0": 1.0,
+            "stim_del": "0ms",
+            "stim_dur": "2000s",
+            "stim_amp": "5nA",
+            "input_percent": 100
+        },
+        "cells": {
+            "hr_regular0": {
+                "parameters": {
+                    "a": "a",
+                    "b": "b",
+                    "c": "c",
+                    "d": "d",
+                    "s": "s",
+                    "x1": "x1",
+                    "r": "r",
+                    "x0": "x0",
+                    "y0": "y0",
+                    "z0": "z0"
+                },
+                "lems_source_file": "../HindmarshRose1984Cell.xml"
+            }
+        },
+        "input_sources": {
+            "iclamp_0": {
+                "parameters": {
+                    "amplitude": "stim_amp",
+                    "delay": "stim_del",
+                    "duration": "stim_dur"
+                },
+                "neuroml2_input": "PulseGenerator"
+            }
+        },
+        "populations": {
+            "hrPop": {
+                "size": "N",
+                "component": "hr_regular0",
+                "properties": {
+                    "color": ".7 0 0"
+                }
+            }
+        },
+        "inputs": {
+            "stim": {
+                "input_source": "iclamp_0",
+                "population": "hrPop",
+                "percentage": "input_percent",
+                "weight": "2*random()"
+            }
+        }
+    }
+}

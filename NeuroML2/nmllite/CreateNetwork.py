@@ -4,7 +4,7 @@ import sys
 from neuromllite.NetworkGenerator import check_to_generate_or_run
 
 
-def generate(ref, size = 1, input_percent = 100, input_weight=1):
+def generate(ref, size = '1', input_percent = 100, input_weight=1):
 
     ################################################################################
     ###   Build new network

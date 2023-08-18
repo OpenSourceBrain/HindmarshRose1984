@@ -18,8 +18,8 @@
 
 -->
 
-<ComponentType name="hindmarshRoseCell1984CellDL"
-    extends="baseCellMembPotDL"
+<ComponentType name="hindmarshRose1984Cell"
+    extends="baseCellMembPot"
     description="
     The Hindmarsh Rose model is a simplified point cell model which
     captures complex firing patterns of single neurons, such as
@@ -38,6 +38,8 @@
     <Parameter name="s" dimension="none" description="related to adaptation"/>
     <Parameter name="x1" dimension="none" description="related to the system's resting potential"/>
 
+    <Parameter name="v_scaling" dimension="voltage" description="scaling of x for physiological membrane potential"/>
+
     <!-- Initial Conditions -->
     <Parameter name="x0" dimension="none"/>
     <Parameter name="y0" dimension="none"/>
@@ -46,6 +48,7 @@
     <Attachments name="synapses" type="basePointCurrentDL"/>
 
     <Constant name="MSEC" dimension="time" value="1ms"/>
+    <Constant name="NAMP_SCALE" value="1 nA" dimension="current"/>
 
     <Exposure name="x" dimension="none"/>
     <Exposure name="y" dimension="none"/>
@@ -53,8 +56,8 @@
     <Exposure name="phi" dimension="none"/>
     <Exposure name="chi" dimension="none"/>
     <Exposure name="rho" dimension="none"/>
-    <!-- <Exposure name="V" dimension="none"/> --> <!-- Already exposed from baseCellMembPotDL -->
-    <Exposure name="ISyn" dimension="none"/>
+    <!-- <Exposure name="v" dimension="voltage"/> --> <!-- Already exposed from baseCellMembPot -->
+    <Exposure name="iSyn" dimension="none"/>
     <Exposure name="spiking" dimension="none"/>
     
     <Dynamics>
@@ -64,12 +67,12 @@
         <StateVariable name="z" dimension="none" exposure="z"/>
         <StateVariable name="spiking" dimension="none" exposure="spiking"/>
         
-        <DerivedVariable name="ISyn" dimension="none" exposure="ISyn" select="synapses[*]/I" reduce="add" />
+        <DerivedVariable name="iSyn" dimension="current" exposure="iSyn" select="synapses[*]/i" reduce="add" />
 
-        <DerivedVariable name="phi" dimension="none" exposure="phi" value="y - a * x^3 + b * x^2 + ISyn"/>
+        <DerivedVariable name="phi" dimension="none" exposure="phi" value="y - a * x^3 + b * x^2 + iSyn/NAMP_SCALE"/>
         <DerivedVariable name="chi" dimension="none" exposure="chi" value="c - d * x^2 - y"/>
         <DerivedVariable name="rho" dimension="none" exposure="rho" value="s * ( x - x1 ) - z"/>
-        <DerivedVariable name="V" dimension="none" exposure="V" value="x"/>
+        <DerivedVariable name="v" dimension="voltage" exposure="v" value="x * v_scaling"/>
 
         <TimeDerivative variable="x" value="(phi - z) / MSEC"/>
         <TimeDerivative variable="y" value="chi / MSEC"/>
@@ -81,12 +84,12 @@
             <StateAssignment variable="z" value="z0"/>
         </OnStart>
 
-        <OnCondition test="V .gt. 0 .and. spiking .lt. 0.5">
+        <OnCondition test="v .gt. 0 .and. spiking .lt. 0.5">
             <StateAssignment variable="spiking" value="1"/>
             <EventOut port="spike"/>
         </OnCondition>
 
-        <OnCondition test="V .lt. 0">
+        <OnCondition test="v .lt. 0">
             <StateAssignment variable="spiking" value="0"/>
         </OnCondition>
         
@@ -94,10 +97,6 @@
     
 </ComponentType>
 
-<!-- parameter set for regular saddle-node/homoclinic (aka square wave) busting -->
-<hindmarshRoseCell1984CellDL id="hr_regular0" a="1.0" b="3.0" c="-3.0"
-    d="5.0" s="4.0" x1="-1.3" r="0.002"
-    x0="-1.1" y0="-9" z0="1.0"/>
 
 </Lems>
 

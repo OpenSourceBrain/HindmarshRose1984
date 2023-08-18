@@ -1,9 +1,9 @@
 {
-    "OneCell": {
+    "SmallNet": {
         "version": "NeuroMLlite v0.5.6",
         "notes": "Example: HindmarshRose",
         "parameters": {
-            "N": 1,
+            "N": "10",
             "a": 1,
             "b": 3,
             "c": -3.0,
@@ -66,7 +66,7 @@
                 "input_source": "iclamp_0",
                 "population": "hrPop",
                 "percentage": "input_percent",
-                "weight": 1
+                "weight": "2*random()"
             }
         }
     }

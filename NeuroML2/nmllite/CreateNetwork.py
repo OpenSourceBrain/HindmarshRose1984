@@ -4,16 +4,16 @@ import sys
 from neuromllite.NetworkGenerator import check_to_generate_or_run
 
 
-def generate(ref):
+def generate(ref, size = 1, input_percent = 100, input_weight=1):
 
     ################################################################################
     ###   Build new network
 
     net = Network(id=ref)
     net.notes = "Example: HindmarshRose"
-    net.parameters = {"N": 1}
+    net.parameters = {"N": size}
 
-    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose3d.xml")
+    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose1984CellDL.xml")
     cell.parameters = {}
 
     params = {
@@ -22,13 +22,18 @@ def generate(ref):
         "c": -3.0,
         "d": 5.0,
         "s": 4.0,
-        "I": 5.0,
+        "I": 0,
         "x1": -1.3,
         "r": 0.002,
         "x0": -1.1,
         "y0": -9,
         "z0": 1.0,
     }
+
+    params['stim_del'] = '0ms'
+    params['stim_dur'] = '2000s'
+    params['stim_amp'] = '5'
+    params['input_percent'] = input_percent
 
     for p in params:
         cell.parameters[p] = p
@@ -37,11 +42,22 @@ def generate(ref):
     net.cells.append(cell)
 
 
-    pop = Population(
-        id="hrPop", size="1", component=cell.id, properties={"color": ".7 0 0"}
+    pop0 = Population(
+        id="hrPop", size="N", component=cell.id, properties={"color": ".7 0 0"}
     )
-    net.populations.append(pop)
+    net.populations.append(pop0)
 
+
+    input_source = InputSource(id='iclamp_0', 
+                                neuroml2_input='PulseGeneratorDL', 
+                                parameters={'amplitude':'stim_amp', 'delay':'stim_del', 'duration':'stim_dur'})
+
+    net.input_sources.append(input_source)
+
+
+    net.inputs.append(
+        Input(id="stim", input_source=input_source.id, population=pop0.id, percentage='input_percent', weight=input_weight)
+    )
 
     print(net)
     print(net.to_json())
@@ -54,8 +70,8 @@ def generate(ref):
     sim = Simulation(
         id="Sim%s"%net.id,
         network=new_file,
-        duration="1400000",
-        dt="2.5",
+        duration="1400",
+        dt="0.0025",
         record_variables={"x": {"all": "*"}, "y": {"all": "*"}, "z": {"all": "*"}},
         plots2D={
             "X-Y": {"x_axis": "hrPop[0]/x", "y_axis": "hrPop[0]/y"},
@@ -80,6 +96,7 @@ def generate(ref):
 if __name__ == "__main__":
 
     sim, net = generate(ref="OneCell")
+    sim, net = generate(ref="SmallNet", size='10', input_percent=100, input_weight="2*random()")
 
     ################################################################################
     ###   Run in some simulators

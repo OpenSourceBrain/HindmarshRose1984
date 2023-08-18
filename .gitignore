@@ -30,3 +30,11 @@ arm64
 /NeuroML2/nmllite/report.*.txt
 /NeuroML2/nmllite/OneCell.mdf
 /NeuroML2/nmllite/OneCell.mdf.1
+/NeuroML2/nmllite/LEMS_SimOneCell.xml
+/NeuroML2/nmllite/LEMS_SimSmallNet.xml
+/NeuroML2/nmllite/OneCell.mdf.yaml
+/NeuroML2/nmllite/OneCell.net.nml
+/NeuroML2/nmllite/OneCell__lems.xml
+/NeuroML2/nmllite/RunInMDF.py
+/NeuroML2/nmllite/SmallNet.net.nml
+/NeuroML2/nmllite/SmallNet__lems.xml

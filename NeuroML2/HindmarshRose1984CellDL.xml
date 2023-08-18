@@ -96,6 +96,10 @@
     
 </ComponentType>
 
+<!-- parameter set for regular saddle-node/homoclinic (aka square wave) busting -->
+<hindmarshRoseCell1984CellDL id="hr_regular0" a="1.0" b="3.0" c="-3.0"
+    d="5.0" s="4.0" x1="-1.3" r="0.002"
+    x0="-1.1" y0="-9" z0="1.0"/>
 
 </Lems>
 

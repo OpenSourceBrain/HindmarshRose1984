@@ -56,7 +56,7 @@
     <Exposure name="chi" dimension="none"/>
     <Exposure name="rho" dimension="none"/>
     <!-- <Exposure name="v" dimension="voltage"/> --> <!-- Already exposed from baseCellMembPot -->
-    <Exposure name="iSyn" dimension="none"/>
+    <!--<Exposure name="iSyn" dimension="none"/>-->
     <Exposure name="spiking" dimension="none"/>
     
     <Dynamics>
@@ -68,7 +68,6 @@
         <StateVariable name="spiking" dimension="none" exposure="spiking"/>
         
         <DerivedVariable name="iSyn" dimension="current" exposure="iSyn" select="synapses[*]/i" reduce="add" />
-        <DerivedVariable name="iMemb" dimension="current" exposure="iMemb" value="iSyn"/>
 
         <DerivedVariable name="x" dimension="none" exposure="x" value="v / v_scaling"/>
 
@@ -76,8 +75,9 @@
         <DerivedVariable name="chi" dimension="none" exposure="chi" value="c - d * x^2 - y"/>
         <DerivedVariable name="rho" dimension="none" exposure="rho" value="s * ( x - x1 ) - z"/>
 
+        <DerivedVariable name="iMemb" dimension="current" exposure="iMemb" value="(C * (v_scaling * (phi - z) / MSEC)) + iSyn"/>
 
-        <TimeDerivative variable="v" value="(v_scaling * (phi - z) / MSEC) + iMemb/C"/>
+        <TimeDerivative variable="v" value="iMemb/C"/>
 
         <TimeDerivative variable="y" value="chi / MSEC"/>
         <TimeDerivative variable="z" value="r * rho / MSEC"/>

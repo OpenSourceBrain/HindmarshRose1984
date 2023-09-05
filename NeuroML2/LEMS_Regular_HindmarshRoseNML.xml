@@ -11,7 +11,7 @@
 
 <Include file="HindmarshRose1984Cell.xml"/>
 
-<!-- parameter set for regular saddle-node/homoclinic (aka square wave) busting -->
+<!-- parameter set for regular saddle-node/homoclinic (aka square wave) bursting -->
 <hindmarshRose1984Cell id="hr_regular" a="1.0" b="3.0" c="-3.0"
     d="5.0" s="4.0" x1="-1.3" r="0.002"
     x0="-1.1" y0="-9" z0="1.0" v_scaling="35mV" C="28.57142857 pF"/>

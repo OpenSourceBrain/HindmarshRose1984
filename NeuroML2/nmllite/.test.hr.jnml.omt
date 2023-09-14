@@ -1,7 +1,7 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
  
 target: test_onecell_jnml.py
-engine: PyNN_NEURON
+engine: PyNN_NeuroML
 mep: ../.test.hr.mep
 experiments: 
   x:

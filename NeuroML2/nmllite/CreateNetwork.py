@@ -13,7 +13,7 @@ def generate(ref, size = '1', input_percent = 100, input_weight=1):
     net.notes = "Example: HindmarshRose"
     net.parameters = {"N": size}
 
-    cell = Cell(id="hr_regular0", lems_source_file="../HindmarshRose1984Cell.xml")
+    cell = Cell(id="hr_regular", neuroml2_source_file="../HindmarshRose1984Cell.net.nml")
     cell.parameters = {}
 
     params = {

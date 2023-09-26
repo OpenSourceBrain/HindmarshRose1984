@@ -31,7 +31,6 @@ jobs:
     - name: Run tests
       run: |
         omv install pyneuroml
-        pynml -v
 
     - name: Test tellurium
       run: |

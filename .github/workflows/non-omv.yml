@@ -28,17 +28,21 @@ jobs:
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
 
-    - name: Run tests
-      run: |
-        omv install jneuroml
 
     - name: Test tellurium
       run: |
+
+        export JNML_HOME=/home/runner/jnml/jNeuroMLJar
+        export PATH=$JNML_HOME:$PATH
+ 
+        omv install jNeuroML
+        which jnml
+
         cd NeuroML2
         pip install tellurium
         sudo apt-get install libncurses5 --fix-missing
         
-        /home/runner/.local/share/jnml/jNeuroMLJar/jnml  LEMS_Regular_HindmarshRose.xml -sbml-sedml
+        jnml  LEMS_Regular_HindmarshRose.xml -sbml-sedml
         python test_tellurium.py
 
         ls -alth

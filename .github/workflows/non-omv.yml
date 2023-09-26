@@ -1,0 +1,53 @@
+
+name: Testing non OMV scripts
+
+on:
+  push:
+    branches: [ master, development, experimental ]
+  pull_request:
+    branches: [ master, development, experimental ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ 3.8, 3.9, "3.10" ]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python  ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version:  ${{ matrix.python-version }}
+
+    - name: Install OMV
+      run: |
+        pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+
+    - name: Run tests
+      run: |
+        omv install pyneuroml
+        pynml -v
+
+    - name: Test tellurium
+      run: |
+        cd NeuroML2
+        pip install tellurium
+        sudo apt-get install libncurses5 --fix-missing
+        
+        /home/runner/.local/share/jnml/jNeuroMLJar/jnml  LEMS_Regular_HindmarshRose.xml -sbml-sedml
+        python test_tellurium.py
+
+        ls -alth
+        
+
+
+    - name: Final version info
+      run: |
+        omv list -V # list installed engines
+        pip list
+        env

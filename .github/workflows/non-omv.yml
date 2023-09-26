@@ -1,9 +1,7 @@
 
-name: Continuous build using OMV
+name: Testing non OMV scripts
 
 on:
-  schedule:
-    - cron: "1 1 1 */2 *"
   push:
     branches: [ master, development, experimental ]
   pull_request:
@@ -16,29 +14,43 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ 3.9, "3.10" ] # Only test >=py3.9 as brian2 only supports that
-        engine: [ jNeuroML, PyLEMS_NeuroML2, jNeuroML_NEURON, jNeuroML_EDEN, jNeuroML_Brian2, PyNN_NeuroML, jNeuroML_validate ]
+        python-version: [ 3.8, 3.9, "3.10" ]
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Set up Python  ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version:  ${{ matrix.python-version }}
-        
+
     - name: Install OMV
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-        pip install scipy sympy matplotlib cython pandas tables
-        pip list
-        
-    - name: Run OMV tests on engine ${{ matrix.engine }}
+
+
+    - name: Test tellurium
       run: |
-        omv all -V --engine=${{ matrix.engine }}
+
+        export JNML_HOME=/home/runner/jnml/jNeuroMLJar
+        export PATH=$JNML_HOME:$PATH
+ 
+        omv install jNeuroML
+        which jnml
+
+        cd NeuroML2
+        pip install tellurium
+        sudo apt-get install libncurses5 --fix-missing
         
-    - name: OMV final version info
+        jnml  LEMS_Regular_HindmarshRose.xml -sbml-sedml
+        python test_tellurium.py
+
+        ls -alth
+        
+
+
+    - name: Final version info
       run: |
         omv list -V # list installed engines
-        
+        pip list
         env

@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       run: |
-        omv install pyneuroml
+        omv install jneuroml
 
     - name: Test tellurium
       run: |

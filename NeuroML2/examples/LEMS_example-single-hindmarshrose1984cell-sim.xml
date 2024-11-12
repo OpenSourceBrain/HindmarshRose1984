@@ -1,0 +1,26 @@
+<Lems>
+
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v1.3.13 (libNeuroML v0.6.6)
+
+     -->
+
+    <!-- Specify which component to run -->
+    <Target component="example-single-hindmarshrose1984cell-sim"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    <Include file="hindmarshrose1984_single_cell_network.nml"/>
+
+    <Simulation id="example-single-hindmarshrose1984cell-sim" length="1400.0ms" step="0.0025ms" target="HRNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+        <OutputFile id="output0" fileName="example-single-hindmarshrose1984cell-sim.v.dat">
+            <OutputColumn id="HRPop0[0]" quantity="HRPop0[0]/v"/>
+        </OutputFile>
+
+    </Simulation>
+
+</Lems>

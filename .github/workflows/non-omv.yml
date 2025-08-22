@@ -37,7 +37,7 @@ jobs:
 
         cd NeuroML2
         pip install tellurium
-        sudo apt-get install libncurses5 --fix-missing
+        sudo apt-get install libncurses6 --fix-missing
         
         jnml  LEMS_Regular_HindmarshRose.xml -sbml-sedml
         python test_tellurium.py

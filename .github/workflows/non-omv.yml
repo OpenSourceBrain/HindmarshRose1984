@@ -31,11 +31,8 @@ jobs:
 
     - name: Test tellurium
       run: |
-
-        export JNML_HOME=/home/runner/jnml/jNeuroMLJar
-        export PATH=$JNML_HOME:$PATH
  
-        omv install jNeuroML
+        omv install pyNeuroML
         which jnml
 
         cd NeuroML2

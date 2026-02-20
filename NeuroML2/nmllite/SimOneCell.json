@@ -1,6 +1,6 @@
 {
     "SimOneCell": {
-        "version": "NeuroMLlite v0.5.7",
+        "version": "NeuroMLlite v0.6.1",
         "network": "OneCell.json",
         "duration": 1400.0,
         "dt": 0.0025,

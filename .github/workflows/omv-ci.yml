@@ -29,6 +29,7 @@ jobs:
         
     - name: Install OMV
       run: |
+        pip install setuptools --upgrade # needed for Python 3.12
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables setuptools
         pip list

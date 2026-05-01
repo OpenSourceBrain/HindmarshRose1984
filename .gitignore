@@ -38,3 +38,8 @@ arm64
 /NeuroML2/nmllite/RunInMDF.py
 /NeuroML2/nmllite/SmallNet.net.nml
 /NeuroML2/nmllite/SmallNet__lems.xml
+/.DS_Store
+/NeuroML2/LEMS_*.c
+/NeuroML2/*.pdf
+/NeuroML2/*.csv
+/NeuroML2/Makefile

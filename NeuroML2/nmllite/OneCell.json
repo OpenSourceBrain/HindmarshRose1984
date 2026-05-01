@@ -1,6 +1,6 @@
 {
     "OneCell": {
-        "version": "NeuroMLlite v0.5.7",
+        "version": "NeuroMLlite v0.6.1",
         "notes": "Example: HindmarshRose",
         "parameters": {
             "N": "1",

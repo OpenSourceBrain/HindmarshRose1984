@@ -20,7 +20,7 @@ jobs:
         engine: [ jNeuroML, PyLEMS_NeuroML2, jNeuroML_NEURON, jNeuroML_EDEN, jNeuroML_Brian2, PyNN_NeuroML, jNeuroML_validate ]
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     
     - name: Set up Python  ${{ matrix.python-version }}
       uses: actions/setup-python@v6
